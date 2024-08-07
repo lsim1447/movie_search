@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import useMovieSearch from '../../hooks/useMovieSearch';
 import { MovieCard } from '../MovieCard';
 import { LoadingSpinner } from '../LoadingSpinner';
+import { ErrorMessage } from '../ErrorMessage';
+import { NoMoviesMessage } from '../NoMoviesMessage';
 
 export const Container = styled.div`
   display: flex;
@@ -79,7 +81,8 @@ export const MovieSearchPage: React.FC = () => {
       <Button onClick={handleSearch}> Search </Button>
 
       {loading && <LoadingSpinner />}
-      {error && <p>{error}</p>}
+      {error && <ErrorMessage message={error} />}
+      {!loading && !error && movies.length === 0 && <NoMoviesMessage />}
 
       <MovieList>
         {movies.map((movie) => (

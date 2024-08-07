@@ -21,5 +21,5 @@ export const Spinner = styled.div`
 `;
 
 export const LoadingSpinner: React.FC = () => {
-    return <Spinner />;
+    return <Spinner data-testid="loading-spinner"/>;
 };
