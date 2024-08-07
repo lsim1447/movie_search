@@ -64,7 +64,7 @@ describe('MovieSearchPage', () => {
       movies: [],
       error: '',
       loading: false,
-      searchMovies: jest.fn(),
+      searchMovies: () => {},
     };
 
     jest.spyOn(useMovieSearchHook, 'default').mockReturnValue(mockUseMovieSearch);
